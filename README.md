@@ -18,15 +18,15 @@ Then fix the remotes:
 
 Change:
 
-> [remote "origin"]
->   fetch = +refs/heads/*:refs/remotes/origin/*
->   url = git@github.com:yb66/sinatra-extension-skeleton.git
+> [remote "origin"]  
+>   fetch = +refs/heads/*:refs/remotes/origin/*  
+>   url = git@github.com:yb66/sinatra-extension-skeleton.git  
 
 To:
 
-> [remote "origin"]
->   fetch = +refs/heads/*:refs/remotes/origin/*
->   url = git@github.com:YOUR-USERNAME/sinatra-MODULENAME.git
+> [remote "origin"]  
+>   fetch = +refs/heads/*:refs/remotes/origin/*  
+>   url = git@github.com:YOUR-USERNAME/sinatra-MODULENAME.git  
 
 ## Licence ##
 
