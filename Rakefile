@@ -2,8 +2,11 @@
 require "bundler/gem_tasks"
 
 task :rename do
+  new_name = ENV["n"]
   Dir.glob("./**/*").each do |file|
-    File.rename(file, file.downcase) #or upcase if you want to convert to uppercase
+    if file =~ /^MODULENAME(?:\.\w+)?/
+      File.rename(file, file.sub("MODULENAME",n).downcase)
+    end
   end
 end
 
