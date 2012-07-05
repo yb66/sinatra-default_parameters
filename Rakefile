@@ -26,7 +26,7 @@ end
 desc "Rename the files and folders of the project from MODULENAME to something useful."
 task :rename do
   new_name = ENV["n"]
-  Dir["./**/*"].reject{|f| f["/vendor"] || f["/bin"] || f["Rakefile"] || f["Gemfile"] || f["LICENCE"] }.sort_by{|n| n.length }.reverse.each do |file|
+  Dir["./**/*"].reject{|f| f["/vendor"] || f["/bin"] || f["Rakefile"] || f["Gemfile"] || f["LICENCE"] || f["README.md"] }.sort_by{|n| n.length }.reverse.each do |file|
     if File.exists?(file)
       File.file?(file) && edit_in_place(file,new_name)
       if file =~ P
