@@ -3,6 +3,13 @@
 require 'rspec'
 require "rack/test"
 
+# code coverage
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/vendor/"
+  add_filter "/bin/"
+end
+
 ENV['RACK_ENV'] ||= 'test'
 ENV["EXPECT_WITH"] ||= "racktest"
 

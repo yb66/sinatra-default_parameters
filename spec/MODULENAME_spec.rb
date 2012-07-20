@@ -13,6 +13,6 @@ end
 describe "MODULE" do
   let(:browser){  new_session( app ) }
   before{ browser.get '/' }
-  include_context "Any route"
-  it_should_behave_like "All pages"
+  include_context "All pages"
+  it_should_behave_like "Any route"
 end
