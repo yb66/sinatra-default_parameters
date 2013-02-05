@@ -2,15 +2,32 @@ require "bundler/gem_tasks"
 
 P = /MODULENAME/
 
-def edit_in_place( file_name, module_name )
+# A module name could come in a variety of shapes and sizes.
+# This will help make it the right shape for us.
+class ModuleNamer
+  def initialize( original )
+    @original = original
+    # AuthToken Auth-Token Auth_Token auth_token authtoken auth-token
+  
+    # dir
+    @dir_path = File.join original.downcase.split(%r{[/-]})
+    @constants = original.split(%r{[/-]|(?:\:\:)}).map{|x| x =~ /\_/ ? x.split(/\_/).map(&:capitalize).join : x.capitalize }.join("::")
+  end
+
+  attr_reader :dir_path, :constant_path, :original
+end
+
+
+def edit_in_place( file_name, original_module_name )
+  module_name = ModuleName.new original_module_name
   File.open(file_name, 'r+') do |f|   # open file for update
     lines = f.readlines           # read into array of lines
     lines.each do |it|            # modify lines
       if it =~ P
         if it =~ /(?:\/|\-)MODULE/
-          it.gsub!(P, module_name.downcase)
+          it.gsub!(P, module_name.dir_path)
         else
-          it.gsub!(P, module_name)
+          it.gsub!(P, module_name.constant_path)
         end
         it
       end
