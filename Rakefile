@@ -19,7 +19,7 @@ end
 
 
 def edit_in_place( file_name, original_module_name )
-  module_name = ModuleName.new original_module_name
+  module_name = ModuleNamer.new original_module_name
   File.open(file_name, 'r+') do |f|   # open file for update
     lines = f.readlines           # read into array of lines
     lines.each do |it|            # modify lines
