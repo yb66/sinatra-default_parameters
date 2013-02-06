@@ -22,14 +22,14 @@ def edit_in_place( file_name, original_module_name )
   module_name = ModuleNamer.new original_module_name
   File.open(file_name, 'r+') do |f|   # open file for update
     lines = f.readlines           # read into array of lines
-    lines.each do |it|            # modify lines
-      if it =~ P
-        if it =~ /(?:\/|\-)MODULE/
-          it.gsub!(P, module_name.dir_path)
+    lines.each do |line|            # modify lines
+      if line =~ P
+        if line =~ /(?:\/|\-)MODULE/
+          line.gsub!(P, module_name.dir_path)
         else
-          it.gsub!(P, module_name.constant_path)
+          line.gsub!(P, module_name.constant_path)
         end
-        it
+        line
       end
     end
     f.pos = 0                     # back to start
