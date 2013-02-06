@@ -11,7 +11,7 @@ class ModuleNamer
   
     # dir
     @dir_path = File.join original.downcase.split(%r{[/-]})
-    @constants = original.split(%r{[/-]|(?:\:\:)}).map{|x| x =~ /\_/ ? x.split(/\_/).map(&:capitalize).join : x.capitalize }.join("::")
+    @constant_path = original.split(%r{[/-]|(?:\:\:)}).map{|x| x =~ /\_/ ? x.split(/\_/).map(&:capitalize).join : x.capitalize }.join("::")
   end
 
   attr_reader :dir_path, :constant_path, :original
