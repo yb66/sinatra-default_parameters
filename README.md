@@ -1,5 +1,13 @@
 # Sinatra Default Parameters #
 
+## Build status ##
+
+Master branch:
+[![Build Status](https://travis-ci.org/yb66/sinatra-default_parameters.png?branch=master)](https://travis-ci.org/yb66/sinatra-default_parameters)
+
+Develop branch:
+[![Build Status](https://travis-ci.org/yb66/sinatra-default_parameters.png?branch=develop)](https://travis-ci.org/yb66/sinatra-default_parameters)
+
 ## What? ##
 
 A quick and simple way to set defaults for the params helper on a per route basis.
