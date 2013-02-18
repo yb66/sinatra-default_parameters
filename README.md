@@ -1,41 +1,40 @@
-# Sinatra Extension Skeleton
+# Sinatra Default Parameters #
 
-Quick way to get the skeleton of an extension for Sinatra going.
+## What? ##
 
-## Installation
+A quick and simple way to set defaults for the params helper on a per route basis.
 
-    git clone git@github.com:yb66/sinatra-extension-skeleton.git sinatra-MODULENAME
+## Why? ##
+
+I was inspired to make this into a gem after [answering this question on StackOverflow](http://stackoverflow.com/a/14885171/335847). I liked the look of it and thought I'll use this again, hence a gem.
+
+## How? ##
+
+It's quite simple.
+
+    require 'sinatra/default_parameters'
     
-    cd sinatra-MODULENAME
+    helpers Sinatra::DefaultParameters # This too if you're using modular style apps.
     
-    bundle install --binstubs --path vendor
+    get "/" do
+      set_defaults a: 1, b: 2, c: 3
+      params.inspect
+    end
     
-    bin/rake rename n=MODULENAME
+    # GET "/"
+    # => {"a"=>1, "b"=>2, "c"=>3}
+    # GET "/?a=7&b=4"
+    # => {"a"=>"7", "b"=>"4", "c"=>3}
+    # GET "/?d=4"
+    # => {"a"=>1, "b"=>2, "c"=>3, "d"=>"4"}
+    # GET "/?a=7&b=4&d=4"
+    # => {"a"=>"7", "b"=>"4", "c"=>3, "d"=>"4"}
 
-Then fix the remotes:
+Simples, innit.
 
-    vi .git/config
+***Note:*** As you can see from the examples it doesn't do any type casting or other checks, it just does this one very small thing, the rest is up to you.
 
-Change:
-
-> [remote "origin"]  
->   fetch = +refs/heads/*:refs/remotes/origin/*  
->   url = git@github.com:yb66/sinatra-extension-skeleton.git  
-
-To:
-
-> [remote "origin"]  
->   fetch = +refs/heads/*:refs/remotes/origin/*  
->   url = git@github.com:YOUR-USERNAME/sinatra-MODULENAME.git  
-
-or you could do:
-
-
-    $ git remote rm origin
-    $ git remote add origin git@github.com:YOUR-USERNAME/sinatra-MODULENAME.git
-    $ git config master.remote origin
-    $ git config master.merge refs/heads/master
 
 ## Licence ##
 
-  There is a licence in the LICENCE file, which you can replace with the licence you wish for your module. This, as the file says, is under MIT licence. In other words, be good!
+See the LICENCE file.

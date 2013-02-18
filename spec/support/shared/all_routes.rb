@@ -1,14 +1,10 @@
 # encoding: UTF-8
 
 require 'sinatra/base'
-require_relative "../../../lib/sinatra/MODULE.rb"
+require_relative "../../../lib/sinatra/default_parameters.rb"
 # require_relative "./helpers.rb"
 
-class Example < Sinatra::Base
-  register Sinatra::MODULE
-  
-  # some routes here...
-end
+require_relative "../../../examples/app.rb"
 
 shared_context "All pages" do
   include Rack::Test::Methods
