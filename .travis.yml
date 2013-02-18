@@ -3,9 +3,8 @@ rvm:
   - 1.9.2
   - 1.9.3
   - jruby-19mode
-  - rbx
+  - rbx-19mode
 bundler_args: --binstubs --path vendor 
-script: bundle exec rspec spec
 
 # whitelist
 branches:

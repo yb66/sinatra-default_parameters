@@ -20,3 +20,13 @@ namespace :docs do
     puts "Open the index.html file in the docs directory to read them. Does not include methods marked private unless you ran the 'all' version (you'll only need these if you plan to hack on the library itself)."
   end
 end
+
+require 'rspec/core/rake_task'
+
+desc "Run specs"
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = "./spec/**/*_spec.rb"
+end
+
+desc 'Default: run specs.'
+task :default => :spec
