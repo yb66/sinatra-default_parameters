@@ -6,6 +6,7 @@ require_relative "../lib/sinatra/default_parameters.rb"
 
 
 describe "DefaultParameters" do
+
   before do
     get '/'
   end
@@ -28,6 +29,23 @@ describe "DefaultParameters" do
         %q!{"finish"=>20, "start"=>10, "type"=>"race", "unit"=>"seconds"}!
       }
       it { should == expected }
+    end
+    
+    context "Given parameters that have keys the same as the defaults" do
+      before do
+        get '/?start=5'
+      end
+      let(:expected) { %q!{"finish"=>20, "start"=>"5"}! }
+      it { should == expected }
+      context "Given extra parameters too" do
+        before do
+          get '/?unit=seconds&type=race&start=5'
+        end
+        let(:expected) { 
+          %q!{"finish"=>20, "start"=>"5", "type"=>"race", "unit"=>"seconds"}!
+        }
+        it { should == expected }
+      end
     end
   end
 end
