@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["iainspeed@gmail.com"]
   gem.description   = %q{A quick and simple way to set defaults for the params helper on a per route basis.}
   gem.summary       = %q{Extends the request context with a helper to give a quick and simple way to set defaults for the params helper on a per route basis.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/yb66/sinatra-default_parameters"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
