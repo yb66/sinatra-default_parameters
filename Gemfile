@@ -6,7 +6,7 @@ group :development do
   gem "sinatra"
   gem "wirble"
   gem "yard"
-  gem "redcarpet"
+  gem "maruku"
 end
 
 group :test do
