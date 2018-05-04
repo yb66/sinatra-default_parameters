@@ -14,5 +14,5 @@ Gem::Specification.new do |gem|
   gem.name          = "sinatra-default_parameters"
   gem.require_paths = ["lib"]
   gem.version       = Sinatra::DefaultParameters::VERSION
-  gem.add_dependency("sinatra", "~>1.3")
+  gem.add_dependency("sinatra", ">=1.3")
 end

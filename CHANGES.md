@@ -1,5 +1,9 @@
 # CH CH CH CHANGES #
 
+## v1.0.1, Friday the 4th of May 2018 ##
+
+- Changed the version check for Sinatra as it's too restrictive.
+
 ## v1.0.0 ##
 
 Thursday the 4th of April 2013
