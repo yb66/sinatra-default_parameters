@@ -17,5 +17,8 @@ test/version_tmp
 tmp
 bin/
 vendor/
+vendor.noindex/
+.ruby-version
+.env
 .rspec
 .rbx/
